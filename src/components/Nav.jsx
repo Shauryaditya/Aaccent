@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useMediaQuery } from "../utils/useMediaQuery";
 
-type Props = {};
 
-const Nav = (props: Props) => {
+
+const Nav = () => {
   const [toggled, setToggled] = useState(false);
   const matches = useMediaQuery("(min-width: 1280px)");
 
