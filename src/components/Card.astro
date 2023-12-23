@@ -1,0 +1,31 @@
+---
+import { Image } from 'astro:assets';
+export interface Props {
+  title: string
+  body: string
+  href: string
+  text: string
+  width: number
+  height: number
+  imagePath: string;
+
+}
+
+const { title,text,imagePath,width,height } = Astro.props;
+  // Dynamically import the image
+  const imagePromise = import(imagePath);
+  
+  // Use Promise.resolve to make sure the promise resolves immediately
+  const image = Promise.resolve(imagePromise);
+---
+
+<main class="">
+	<div class="flex flex-col gap-4 ">
+		<div class="flex justify-center items-center">
+		<Image height={height} width={width} src={image} alt={`image`} />
+	</div>
+  <h1 class="text-xl font-bold text-center">{title}</h1>
+	<h1>{text}</h1>
+	</div>
+</main>
+
