@@ -40,7 +40,7 @@ const Nav = () => {
         <div className="flex gap-12">
           <a href="/">Home</a>
           <a href="/">Services</a>
-          <a href="/">About Us</a>
+          <a href="/about">About Us</a>
           <a href="/contact">Contact Us</a>
         </div>
       )}
