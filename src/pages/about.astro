@@ -10,14 +10,14 @@ const publishedTeamMembers = await getCollection("team");
 ---
 
 
-<Layout title="About">
+<Layout title="About" >
   <Container>
     <Sectionhead>
       <Fragment slot="title">About</Fragment>
       <Fragment slot="desc">We are a small passionate team.</Fragment>
     </Sectionhead>
 
-    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
+    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16 ">
       <h2 class="font-bold text-3xl text-gray-800">
         Our History
       </h2>
@@ -40,7 +40,7 @@ const publishedTeamMembers = await getCollection("team");
        ALL BOARDS (I.C.S.E., C.B.S.E., W.B.)
       </p>
     </div>
-    <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-12">
+    <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-12 mb-16">
       {
         publishedTeamMembers.map((teamMemberEntry) => (
           <div class="group">
