@@ -15,7 +15,7 @@ const Nav = () => {
   return (
     <nav className="relative mx-8 mb-8 flex justify-between items-center pt-12 pb-6 font-medium md:mx-16 lg:mx-32">
       <svg
-        className="absolute bottom-0 left-[52%] md:left-[34%]  -translate-x-1/2"
+        className="absolute bottom-0 left-[52%] md:left-[34%]  -translate-x-1/2 "
         width="250"
         height={4}
         viewBox="0 0 250 4"
@@ -30,7 +30,7 @@ const Nav = () => {
         />
       </svg>
       <div>
-        <img src="" alt="Logo" />
+        <img className="w-12 h-12 p-1" src="https://res.cloudinary.com/dvjbrjvgf/image/upload/v1703397008/Aaccent/ozsltpw9rdp9hprglhwv.jpg" alt="Logo" />
       </div>
 
       <h1 className="text-lg font-bold">
@@ -60,13 +60,13 @@ const Nav = () => {
           <motion.div
           animate={{ opacity: 1, x: 0}}
           initial={{opacity: 0, x: 25}}
-          className="fixed flex bg-white bottom-0 left-0 w-full h-screen justify-center items-center z-10">
+          className="fixed flex bg-white bottom-0 left-0 w-full h-screen justify-center items-center z-50">
 
             <div className="flex flex-col gap-24 text-lg">
               <motion.a variants={itemMotion} href="/">Home</motion.a>
               <motion.a variants={itemMotion} href="/">Services</motion.a>
-              <motion.a variants={itemMotion} href="/">About Us</motion.a>
-              <motion.a variants={itemMotion} href="/">Contact Us</motion.a>
+              <motion.a variants={itemMotion} href="/about">About Us</motion.a>
+              <motion.a variants={itemMotion} href="/contact">Contact Us</motion.a>
             </div>
           </motion.div>
         )}

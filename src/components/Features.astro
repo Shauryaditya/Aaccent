@@ -3,7 +3,7 @@ import Card from './Card.astro';
 const cardDetails = [
   {
     title: "Our Story",
-    imagePath: '../../assets/pic1.jpg',
+    imagePath: 'https://res.cloudinary.com/dvjbrjvgf/image/upload/v1703397011/Aaccent/cwxvsud6phkiszskjb2w.jpg',
     description:
       "We at ADVANTAGE aim to make our students adept and develop in them academic excellence, sincerity and positive values to make them responsible citizens of our country. The team of qualified & experienced faculty train the students with the right guidance as per the syllabi/patterns /types of questions and also induces in them the spirit of excellence by keeping their morale high up.",
     
@@ -12,7 +12,7 @@ const cardDetails = [
   },
   {
     title: "Our Services",
-    imagePath: '../../assets/pic4.jpg',
+    imagePath: 'https://res.cloudinary.com/dvjbrjvgf/image/upload/v1703397011/Aaccent/q3mp60nr2odxqttcbtnp.jpg',
     description:
       "At Advantage Academic Center Tutoring Centre, we offer a wide range of tutoring services to meet the unique needs of each student. From one-on-one tutoring to group classes, we have everything you need to succeed.",
 
@@ -21,7 +21,7 @@ const cardDetails = [
   },
   {
     title: "Our Tutors",
-    imagePath: '../../assets/pic3.jpg',
+    imagePath: 'https://res.cloudinary.com/dvjbrjvgf/image/upload/v1703397011/Aaccent/uxclyask1ylacycgqqcj.jpg',
     description:
       "Our tutors are experienced educators who are passionate about their subjects and committed to helping students succeed. They work closely with each student to develop a customized learning plan that meets their unique needs and helps them achieve their goals.",
    
@@ -30,7 +30,7 @@ const cardDetails = [
   },
   {
     title: "About Us",
-    imagePath: '../../assets/pic1.jpg',
+    imagePath: 'https://res.cloudinary.com/dvjbrjvgf/image/upload/v1703397010/Aaccent/najplhse7blot2cx5moz.jpg',
     description:
       "ADVANTAGE ACADEMIC CENTRE STARTED ITS JOURNEY IN DECEMBER 2005 FROM SCRATCH. IN AROUND 11 YEARS TIME IT HAS BECOME WHAT IT IS TODAY. PRESENTLY ADVANTAGE HAS APPROXIMATELY 150 STUDENTS STUDENTS FROM RENOWNED SCHOOLS OF KOLKATA LIKE ST XAVIERS, M P BIRLA, MAHADEVI BIRLA, etc ARE UNDER OUR GUIDANCE.",
   
@@ -43,7 +43,7 @@ const cardDetails = [
 ---
 
 <main class="max-w-5xl mx-auto">
-    <div class="grid grid-cols-2 gap-10 p-10 ">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 p-10 ">
         {cardDetails.map((item) => (
            <Card 
             title={item.title}

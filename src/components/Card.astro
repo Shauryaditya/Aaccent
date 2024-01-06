@@ -10,19 +10,12 @@ export interface Props {
 }
 
 const { title,text,imagePath,width,height } = Astro.props;
-const imagePromise = import(imagePath);
-
-// Use the `await` keyword to wait for the promise to resolve
-const imageModule = await imagePromise;
-
-// Access the `default` property
-const image = imageModule.default;
 ---
 
 <main class="">
 	<div class="flex flex-col gap-4 ">
 		<div class="flex justify-center items-center">
-      <Image height={height} width={width} src={image} alt={`image`} />
+      <Image height={height} width={width} src={imagePath} alt={`image`} />
     </div>
     
   <h1 class="text-xl font-bold text-center">{title}</h1>
