@@ -64,7 +64,7 @@ const Nav = () => {
 
             <div className="flex flex-col gap-24 text-lg">
               <motion.a variants={itemMotion} href="/">Home</motion.a>
-              <motion.a variants={itemMotion} href="/">Services</motion.a>
+              <motion.a variants={itemMotion} href="/services">Services</motion.a>
               <motion.a variants={itemMotion} href="/about">About Us</motion.a>
               <motion.a variants={itemMotion} href="/contact">Contact Us</motion.a>
             </div>
