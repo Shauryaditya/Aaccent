@@ -40,8 +40,10 @@ const Nav = () => {
         <div className="flex gap-12">
           <a href="/">Home</a>
           <a href="/services">Services</a>
+          <a href="/pricing">Pricing</a>
           <a href="/about">About Us</a>
           <a href="/contact">Contact Us</a>
+         
         </div>
       )}
 
@@ -65,6 +67,7 @@ const Nav = () => {
             <div className="flex flex-col gap-24 text-lg">
               <motion.a variants={itemMotion} href="/">Home</motion.a>
               <motion.a variants={itemMotion} href="/services">Services</motion.a>
+              <motion.a variants={itemMotion} href="/pricing">Pricing</motion.a>
               <motion.a variants={itemMotion} href="/about">About Us</motion.a>
               <motion.a variants={itemMotion} href="/contact">Contact Us</motion.a>
             </div>
