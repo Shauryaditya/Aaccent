@@ -1,0 +1,69 @@
+---
+import { getCollection } from "astro:content";
+import { Picture } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/container.astro";
+import Sectionhead from "../components/sectionhead.astro";
+
+// Filter team entries with 'draft: false' & date before current date
+const publishedTeamMembers = await getCollection("team");
+---
+
+
+<Layout title="About" >
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">About</Fragment>
+      <Fragment slot="desc">We are a small passionate team.</Fragment>
+    </Sectionhead>
+
+    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16 ">
+      <h2 class="font-bold text-3xl text-gray-800">
+        Our History
+      </h2>
+      <p class="text-lg leading-relaxed text-slate-500">
+        ADVANTAGE ACADEMIC CENTRE STARTED ITS JOURNEY IN DECEMBER 2005 FROM SCRATCH. IN AROUND 18 YEARS TIME IT HAS BECOME WHAT IT IS TODAY. PRESENTLY ADVANTAGE HAS APPROXIMATELY 150 STUDENTS.
+        STUDENTS FROM RENOWNED SCHOOLS OF KOLKATA LIKE ST XAVIERS, M P BIRLA, MAHADEVI BIRLA, ASHOK HALL, BIRLA HIGH, D.A.V., KENDRIYA VIDYALAYA,  VIVEKANANDA MISSION, NATIONAL GEMS, ST. THOMAS, MEGHMALA ETC. ARE UNDER OUR GUIDANCE.
+       
+       STUDENTS FROM ADVANTAGE ARE PRESENTLY STUDYING IN IIT’S AND VARIOUS ENGINEERING COLLEGES IN WEST BENGAL LIKE ST THOMAS, I.T.M.E., PAILAN WORLD SCHOOL OF TECHNOLOGY AND MANAGEMENT, STATE GOVT. COLLEGES LIKE KALYANI, BERHAMPUR ETC.
+       OUR STUDENTS ARE WORKING IN MULTINATIONALS LIKE COGNIZANT, TECH MAHINDRA, WIPRO ETC.
+       
+       ADVANTAGE ACADEMIC CENTRE WAS STARTED BY SUBRATA BARDHAN (B.E. MECH.). AFTER COMPLETION OF HIS ENGINEERING HE WORKED FOR 14 YEARS IN VARIOUS MULTINATIONAL COMPANIES LIKE ELECTROLUX, SAMSUNG ETC. IN 2005 HE LEFT HIS JOB AND LAUNCHED THIS COACHING INSTITUTE IN THE NAME OF ADVANTAGE ALONG WITH HIS WIFE WHO WAS A COMPETENT PHYSICS TEACHER FOR SIX YEARS BY THEN.
+       
+       WE PROVIDE COACHING FOR PHYSICS, CHEMISTRY, MATHMATICS
+       &
+       COMPUTER SCIENCE (JAVA, VB, C, C++)
+       (WITH PRACTICAL & PROJECT)
+       
+       CLASSES V  to  XII  & ENTRANCE EXAMINATIONS
+       
+       ALL BOARDS (I.C.S.E., C.B.S.E., W.B.)
+      </p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-12 mb-16">
+      {
+        publishedTeamMembers.map((teamMemberEntry) => (
+          <div class="group">
+            <div class="w-full aspect-square">
+              <Picture
+                src={teamMemberEntry.data.avatar.src}
+                alt={teamMemberEntry.data.avatar.alt}
+                sizes="(max-width: 800px) 100vw, 400px"
+                width={400}
+                height={400}
+                class="w-full rounded-md  transition group-hover:-translate-y-1 group-hover:shadow-xl bg-white object-cover object-center aspect-square"
+              />
+            </div>
+
+            <div class="mt-4 text-center">
+              <h2 class="text-lg text-gray-800">{teamMemberEntry.data.name}</h2>
+              <h3 class="text-sm text-slate-500">
+                {teamMemberEntry.data.title}
+              </h3>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Container>
+</Layout>
