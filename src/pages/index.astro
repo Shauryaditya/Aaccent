@@ -1,13 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import Intro from "../components/Intro.astro"
+import Herosection from "../components/Intro.jsx"
 import Features from '../components/Features.astro';
 import Specialities from '../components/Specialities.astro';
 import Bookanimation from '../components/bookanimation.astro';
+import WhyUs from '../components/WhyUs.astro';
 ---
 <Layout>
-	<Intro />
+	<Herosection client:visible />
 	<Features />
 	<Specialities />
+	<WhyUs  />
 	<Bookanimation />
 </Layout>
+../components/Intro.jsx
