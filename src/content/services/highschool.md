@@ -3,9 +3,9 @@ draft: false
 name: "Coaching for all boards"
 features : {
 
-   subjects :  "Physics,Math, Computer",
+   subjects :  "Physics,Chemistry,Biology,Maths, Computer",
   
 }
-classes: "IX,X,XI,XII"
+classes: "For Classes IV to X"
 publishDate: "2022-11-08 15:39"
 ---

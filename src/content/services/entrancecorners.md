@@ -2,8 +2,8 @@
 draft: false
 name: "Entrance Corner"
 features : {
-  subjects :  "Physics, Mathematics ",  
+  subjects :  "For Engineering(Including Foundation)",  
 }
-classes: "IX,X,XI,XII"
+classes: "For Classes IX,X,XI,XII"
 publishDate: "2022-11-08 15:39"
 ---

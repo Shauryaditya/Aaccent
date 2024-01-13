@@ -18,28 +18,14 @@ const publishedFeesStructure = await getCollection("services");
       <Fragment slot="title">Services</Fragment>
       <Fragment slot="desc">Services we provide.</Fragment>
     </Sectionhead>
-<!-- 
-    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
-      <h2 class="font-bold text-3xl text-gray-800">Why Us</h2>
-      <p class="text-lg leading-relaxed text-slate-500">
-        Fed up with the unsatisfactory results of your child? You know that the
-        potential of your child is much more. You are providing your child with
-        best possible guidance according to you! Do you know that most of the
-        coaching centres do not even have permanent teachers to provide a
-        consistent guidance. Constant change of teachers leads to wastage of
-        much required time. A huge student teacher ratio hardly benefits your
-        child An inexperienced home tutor on the other hand can only provide
-        inadequate guidance and lack of exposure to competition.
-      </p>
-    </div> -->
+
     <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-12 mb-16">
       {
         publishedFeesStructure.map((fees) => (
           <div class="group">
             <div class="w-full aspect-square bg-white rounded-xl shadow-2xl p-4 flex flex-col justify-center items-center">
               <p>{fees.data.name}</p>
-              <p>{fees.data.features.subjects}</p>
-              <span>for classes</span>
+              <p class="text-center">{fees.data.features.subjects}</p>
               <p>{fees.data.classes}</p>
             </div>
           </div>

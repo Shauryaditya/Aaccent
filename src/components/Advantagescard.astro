@@ -1,0 +1,22 @@
+---
+
+import { Image } from "astro:assets";
+export interface Props {
+  title: string;
+  text: string;
+  icon: any;
+}
+
+const { title, text, icon } = Astro.props;
+---
+
+<main class="">
+  <div class="aspect-square bg-white rounded-xl shadow-2xl flex flex-col gap-4 p-4 justify-center items-center">
+    <div class="flex gap-x-4">
+        <img src={icon} alt="">
+        <h1 class="text-xl font-bold text-center">{title}</h1>
+    </div>
+    
+    <h1>{text}</h1>
+  </div>
+</main>
