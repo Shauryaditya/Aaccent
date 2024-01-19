@@ -1,7 +1,8 @@
 ---
 draft: false
 name: "Subrata Bardhan"
-title: "Coordinator"
+title: "Coordinator (BE Mechanical)"
+ed: "NIT ALLAHABAD"
 avatar:
   {
     src: "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1703397010/Aaccent/urdmy9why95z6heda4xe.jpg",

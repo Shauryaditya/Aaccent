@@ -1,7 +1,8 @@
 ---
 draft: false
 name: "Mukta Bardhan"
-title: "CoFounder"
+title: "CoFounder (BSC Physics Hons)"
+ed: "Calcutta University"
 avatar:
   {
     src: "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1703397008/Aaccent/daqhebr3lhqjr2wqrduu.jpg",
