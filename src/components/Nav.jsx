@@ -30,10 +30,10 @@ const Nav = () => {
         />
       </svg>
       <div>
-        <img className="w-12 h-12 p-1" src="https://res.cloudinary.com/dvjbrjvgf/image/upload/v1703397008/Aaccent/ozsltpw9rdp9hprglhwv.jpg" alt="Logo" />
+        <img className="w-7 h-7 md:w-12 md:h-12 p-1" src="https://res.cloudinary.com/dvjbrjvgf/image/upload/v1703397008/Aaccent/ozsltpw9rdp9hprglhwv.jpg" alt="Logo" />
       </div>
 
-      <h1 className="text-lg font-bold">
+      <h1 className="text-sm md:text-lg font-bold">
         <a href="#">ADVANTAGE ACADEMIC CENTER</a>
       </h1>
       {matches && (
@@ -65,7 +65,7 @@ const Nav = () => {
           initial={{opacity: 0, x: 25}}
           className="fixed flex bg-white bottom-0 left-0 w-full h-screen justify-center items-center z-50">
 
-            <div className="flex flex-col gap-24 text-lg">
+            <div className="flex flex-col gap-7 md:gap-24 text-base md:text-lg">
               <motion.a variants={itemMotion} href="/">Home</motion.a>
               <motion.a variants={itemMotion} href="/services">Services</motion.a>
               <motion.a variants={itemMotion} href="/pricing">Pricing</motion.a>
