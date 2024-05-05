@@ -2,9 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import styles from './styles/hero.module.css'
+import ResultModal from './ResultModal';
 
 const HeroSection = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [showModal, setShowModal] = useState(false)
 
   const imageUrls = [
     "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1703397010/Aaccent/lr2dcslw5irlkq16gxhf.jpg",
@@ -23,6 +25,14 @@ const HeroSection = () => {
 
   return (
     <main>
+      {/* <div className="" >
+        <button onClick={() => setShowModal(true)}>
+        <h1 className='text-xl text-red-500 text-center'>RESULTS</h1>
+        </button>
+      </div>
+      {showModal && (
+        <ResultModal />
+      )} */}
       <div className={`relative w-full h-[35rem] ${styles.heroContainer}`}>
         {/* Background Image Container */}
         <div className={`absolute inset-0 z-0 ${styles.imageContainer}`}>

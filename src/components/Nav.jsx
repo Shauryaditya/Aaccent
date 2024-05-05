@@ -42,6 +42,7 @@ const Nav = () => {
           <a href="/services">Services</a>
           <a href="/pricing">Pricing</a>
           <a href="/about">About Us</a>
+          <a href="/results">Results</a>
           <a href="/contact">Contact Us</a>
          
         </div>
@@ -69,6 +70,7 @@ const Nav = () => {
               <motion.a variants={itemMotion} href="/services">Services</motion.a>
               <motion.a variants={itemMotion} href="/pricing">Pricing</motion.a>
               <motion.a variants={itemMotion} href="/about">About Us</motion.a>
+              <motion.a variants={itemMotion} href="/results">Results</motion.a>
               <motion.a variants={itemMotion} href="/contact">Contact Us</motion.a>
             </div>
           </motion.div>

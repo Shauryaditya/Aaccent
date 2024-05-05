@@ -1,5 +1,6 @@
 ---
 import Card from './Card.astro';
+
 const cardDetails = [
   {
     title: "Our Story",
@@ -43,6 +44,9 @@ const cardDetails = [
 ---
 
 <main class="max-w-5xl mx-auto">
+  <div class="">
+   
+  </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 p-10 ">
         {cardDetails.map((item) => (
            <Card 

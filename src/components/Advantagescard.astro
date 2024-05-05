@@ -1,6 +1,6 @@
 ---
+import Modal from './Modal.astro';
 
-import { Image } from "astro:assets";
 export interface Props {
   title: string;
   text: string;
@@ -11,6 +11,7 @@ const { title, text, icon } = Astro.props;
 ---
 
 <main class="">
+  <Modal triggerId='null' title={title} closeText='Close' />
   <div class="aspect-square bg-white rounded-xl shadow-2xl flex flex-col gap-4 p-4 justify-center items-center">
     <div class="flex gap-x-4">
         <img src={icon} alt="">
