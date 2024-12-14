@@ -6,14 +6,43 @@ import Specialities from '../components/Specialities.astro';
 import Bookanimation from '../components/bookanimation.astro';
 import WhyUs from '../components/WhyUs.astro';
 import Advantage from "../components/Advantage.astro"
-
 ---
+
 <Layout>
 	<Herosection client:visible />
-	
+
+	<!-- Catchy Call-to-Action Section -->
+	<div style="text-align: center; margin: 2rem 0; padding: 1rem; background-color: #f9f9f9; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+		<h2 style="color: #1a73e8; font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem;">
+			✨ Your Academic Success Starts Here! ✨
+		</h2>
+		<p style="color: #555; font-size: 1.1rem; margin-bottom: 1rem;">
+			Access top-notch <strong>courses</strong>, <strong>assignments</strong>, and <strong>lectures</strong> exclusively from <em>Advantage Academic Center</em>.
+		</p>
+		<a 
+			href="https://e-learn-five.vercel.app/" 
+			style="
+				display: inline-block; 
+				padding: 0.8rem 1.5rem; 
+				background-color: #000; 
+				color: #fff; 
+				text-decoration: none; 
+				font-weight: bold; 
+				font-size: 1.2rem; 
+				border-radius: 5px; 
+				transition: transform 0.2s ease, background-color 0.2s ease;"
+			target="_blank" 
+			rel="noopener noreferrer"
+			onmouseover="this.style.backgroundColor='#333'; this.style.transform='scale(1.05)';"
+			onmouseout="this.style.backgroundColor='#000'; this.style.transform='scale(1)';"
+		>
+			🚀 Explore Now
+		</a>
+	</div>
+
 	<Features />
 	<Specialities />
-	<WhyUs  />
+	<WhyUs />
 	<Advantage />
 	<Bookanimation />
 </Layout>
