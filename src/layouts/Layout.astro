@@ -10,6 +10,7 @@ declare global {
 
 import Nav from "../components/Nav";
 import Footer from "../components/Footer.astro";
+import { Analytics } from "@vercel/analytics/next";
 ---
 
 <html lang="en">
@@ -31,18 +32,20 @@ import Footer from "../components/Footer.astro";
       })(window, document, "script", "dataLayer", "GTM-5F9F83VC");
     </script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-616714365"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-616714365"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(p0?: string, p1?: string){window.dataLayer.push(arguments);}
-      
+      function gtag(p0?: string, p1?: string) {
+        window.dataLayer.push(arguments);
+      }
+
       // Initialize Google Analytics with the tracking ID
-      gtag('js', new Date().toISOString());
-      
+      gtag("js", new Date().toISOString());
+
       // Configure the tracking ID
-      gtag('config', 'AW-616714365');
+      gtag("config", "AW-616714365");
     </script>
-    
 
     <!-- End Google Tag Manager -->
     <script
@@ -86,19 +89,22 @@ import Footer from "../components/Footer.astro";
         style="display:none;visibility:hidden"></iframe></noscript
     >
     <!-- End Google Tag Manager (noscript) -->
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/67d280891ba7f019143f9d4d/1im74c6vm';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/67d280891ba7f019143f9d4d/1im74c6vm";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
+    <!--End of Tawk.to Script-->
+    <Analytics />
   </body>
 </html>
 <main>
