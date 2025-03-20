@@ -10,6 +10,30 @@ declare global {
 
 import Nav from "../components/Nav";
 import Footer from "../components/Footer.astro";
+
+const fbPixel = `<script>
+  !(function (f, b, e, v, n, t, s) {
+    if (f.fbq) return;
+    n = f.fbq = function () {
+      n.callMethod
+        ? n.callMethod.apply(n, arguments)
+        : n.queue.push(arguments);
+    };
+    if (!f._fbq) f._fbq = n;
+    n.push = n;
+    n.loaded = !0;
+    n.version = "2.0";
+    n.queue = [];
+    t = b.createElement(e);
+    t.async = !0;
+    t.src = v;
+    s = b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t, s);
+  })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+
+  fbq("init", "634209396142752");
+  fbq("track", "PageView");
+</script>`;
 ---
 
 <html lang="en">
@@ -31,19 +55,31 @@ import Footer from "../components/Footer.astro";
       })(window, document, "script", "dataLayer", "GTM-5F9F83VC");
     </script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-616714365"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-616714365"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(p0?: string, p1?: string){window.dataLayer.push(arguments);}
-      
-      // Initialize Google Analytics with the tracking ID
-      gtag('js', new Date().toISOString());
-      
-      // Configure the tracking ID
-      gtag('config', 'AW-616714365');
-    </script>
-    
+      function gtag(p0?: string, p1?: string) {
+        window.dataLayer.push(arguments);
+      }
 
+      // Initialize Google Analytics with the tracking ID
+      gtag("js", new Date().toISOString());
+
+      // Configure the tracking ID
+      gtag("config", "AW-616714365");
+    </script>
+    <!-- Meta Pixel Code -->
+      {fbPixel}
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=634209396142752&ev=PageView&noscript=1"
+      /></noscript
+    >
+    <!-- End Meta Pixel Code -->
     <!-- End Google Tag Manager -->
     <script
       type="text/partytown"
@@ -86,19 +122,21 @@ import Footer from "../components/Footer.astro";
         style="display:none;visibility:hidden"></iframe></noscript
     >
     <!-- End Google Tag Manager (noscript) -->
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/67d280891ba7f019143f9d4d/1im74c6vm';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/67d280891ba7f019143f9d4d/1im74c6vm";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
+    <!--End of Tawk.to Script-->
   </body>
 </html>
 <main>
