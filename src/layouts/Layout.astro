@@ -3,97 +3,108 @@ const { title } = Astro.props;
 
 declare global {
   interface Window {
-    dataLayer: any[];
+    dataLayer: any;
     gtag: (...args: any[]) => void;
+    Tawk_API: any;
+    Tawk_LoadStart: Date;
+    fbq: Function;
   }
 }
 
 import Nav from "../components/Nav";
 import Footer from "../components/Footer.astro";
 
-const fbPixel = `<script>
-  !(function (f, b, e, v, n, t, s) {
-    if (f.fbq) return;
-    n = f.fbq = function () {
-      n.callMethod
-        ? n.callMethod.apply(n, arguments)
-        : n.queue.push(arguments);
-    };
-    if (!f._fbq) f._fbq = n;
-    n.push = n;
-    n.loaded = !0;
-    n.version = "2.0";
-    n.queue = [];
-    t = b.createElement(e);
-    t.async = !0;
-    t.src = v;
-    s = b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t, s);
-  })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+// Move Facebook Pixel script to the client-side script
+const fbPixelScript = `
+(function(f, b, e, v, n, t, s) {
+  if (f.fbq) return;
+  n = f.fbq = function() {
+    n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+  };
+  if (!f._fbq) f._fbq = n;
+  n.push = n;
+  n.loaded = !0;
+  n.version = "2.0";
+  n.queue = [];
+  t = b.createElement(e);
+  t.async = !0;
+  t.src = v;
+  s = b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t, s);
+})(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
 
-  fbq("init", "634209396142752");
-  fbq("track", "PageView");
-</script>`;
+fbq("init", "634209396142752");
+fbq("track", "PageView");
+`;
 ---
 
 <html lang="en">
   <head>
     <!-- Google Tag Manager -->
-    <script>
-      (function (w: any, d, s, l, i) {
+    <script type="text/javascript">
+      (function(w, d, s, l, i) {
         w[l] = w[l] || [];
         w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
         var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
+            j = d.createElement(s),
+            dl = l != "dataLayer" ? "&l=" + l : "";
         j.setAttribute("async", "true");
-        (j as HTMLScriptElement).src =
-          "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
         if (f.parentNode) {
           f.parentNode.insertBefore(j, f);
         }
       })(window, document, "script", "dataLayer", "GTM-5F9F83VC");
     </script>
+    <!-- End Google Tag Manager -->
+
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-616714365"
-    ></script>
-    <script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-616714365"></script>
+    <script type="text/javascript">
       window.dataLayer = window.dataLayer || [];
-      function gtag(p0?: string, p1?: string) {
+      function gtag() {
         window.dataLayer.push(arguments);
       }
-
-      // Initialize Google Analytics with the tracking ID
-      gtag("js", new Date().toISOString());
-
-      // Configure the tracking ID
+      gtag("js", new Date());
       gtag("config", "AW-616714365");
     </script>
+    <!-- End Google tag -->
+
     <!-- Meta Pixel Code -->
-      {fbPixel}
-    <noscript
-      ><img
+    <script type="text/javascript" set:html={fbPixelScript}></script>
+    <noscript>
+      <img
         height="1"
         width="1"
         style="display:none"
         src="https://www.facebook.com/tr?id=634209396142752&ev=PageView&noscript=1"
-      /></noscript
-    >
+      />
+    </noscript>
     <!-- End Meta Pixel Code -->
-    <!-- End Google Tag Manager -->
+
+    <!-- Google Analytics (with Partytown) -->
     <script
       type="text/partytown"
       async
-      src="https://www.googletagmanager.com/gtag/js?id=G-6KV5M94RRH"></script>
+      src="https://www.googletagmanager.com/gtag/js?id=G-6KV5M94RRH">
+    </script>
     <script type="text/partytown">
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
       gtag("config", "G-6KV5M94RRH");
     </script>
+    <!-- End Google Analytics -->
+
+    <!-- Google AdSense -->
+    <script 
+      async 
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9824737076150181"
+      crossorigin="anonymous">
+    </script>
+    <!-- End Google AdSense -->
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
@@ -105,28 +116,35 @@ const fbPixel = `<script>
       href="https://res.cloudinary.com/dvjbrjvgf/image/upload/v1703397008/Aaccent/ozsltpw9rdp9hprglhwv.jpg"
       type="image/x-icon"
     />
-    <meta title={title} />
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9824737076150181"
-     crossorigin="anonymous"></script>
+    <title>{title}</title>
   </head>
-  <body class="">
+  <body>
     <Nav client:load />
+    
     <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
+    <noscript>
+      <iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-5F9F83VC"
         height="0"
         width="0"
-        style="display:none;visibility:hidden"></iframe></noscript
-    >
+        style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
     <!-- End Google Tag Manager (noscript) -->
+
+    <main>
+      <slot />
+      <!-- your content is injected here -->
+      <Footer />
+    </main>
+
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
-      var Tawk_API = Tawk_API || {},
-        Tawk_LoadStart = new Date();
-      (function () {
-        var s1 = document.createElement("script"),
-          s0 = document.getElementsByTagName("script")[0];
+      var Tawk_API = Tawk_API || {};
+      var Tawk_LoadStart = new Date();
+      (function() {
+        var s1 = document.createElement("script");
+        var s0 = document.getElementsByTagName("script")[0];
         s1.async = true;
         s1.src = "https://embed.tawk.to/67d280891ba7f019143f9d4d/1im74c6vm";
         s1.charset = "UTF-8";
@@ -137,8 +155,3 @@ const fbPixel = `<script>
     <!--End of Tawk.to Script-->
   </body>
 </html>
-<main>
-  <slot />
-  <!-- your content is injected here -->
-  <Footer />
-</main>
