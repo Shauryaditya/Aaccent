@@ -1,32 +1,4 @@
-/* HeroSection.module.css */
-
-@keyframes fadeInOut {
-  0% {
-    opacity: 1;
-  }
-  25% {
-    opacity: 0.5;
-  }
-  75% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 .heroContainer {
+  position: relative;
   overflow: hidden;
-}
-
-.imageContainer {
-  animation: fadeInOut 5s infinite; /* Adjust the duration as needed */
-}
-
-.fadeEffect {
-  opacity: 1;
-}
-
-.fadeEffect:hover {
-  opacity: 1;
 }
