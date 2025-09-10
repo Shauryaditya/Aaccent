@@ -42,7 +42,7 @@ const publishedTeamMembers = await getCollection("team");
     </div>
     <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-12 mb-16">
       {
-        publishedTeamMembers.map((teamMemberEntry) => (
+        publishedTeamMembers.map((teamMemberEntry : any) => (
           <div class="group">
             <div class="w-full aspect-square">
               <Picture
