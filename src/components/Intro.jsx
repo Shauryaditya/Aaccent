@@ -5,9 +5,9 @@ const HeroSection = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const imageUrls = [
-    "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1703397010/Aaccent/lr2dcslw5irlkq16gxhf.jpg",
-    "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1703397010/Aaccent/yndsoszvu67ilbqfhjhh.jpg",
-    "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1705152077/Aaccent/c8xldeivaha5c4qns3hf.jpg",
+    "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1763216949/Banner_1_fme9fs.jpg",
+    "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1763217793/Banner-2_1_o0phsr.webp",
+    "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1763218594/board_brilliance_1_enjr2u.webp",
   ];
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const HeroSection = () => {
 
   return (
     <main className="relative">
-      <div className={`relative w-full h-[35rem] ${styles.heroContainer}`}>
+      <div className={`relative w-full h-[48rem] ${styles.heroContainer}`}>
         {/* Image Background Layer */}
         <div className="absolute inset-0 z-0">
           {imageUrls.map((url, index) => (
@@ -38,14 +38,7 @@ const HeroSection = () => {
         </div>
 
         {/* Text Overlay */}
-        <div className="absolute inset-0 z-20 flex flex-col justify-center items-center px-4 md:items-start md:px-12 text-white mt-10 md:mt-0 gap-y-6 text-center md:text-left">
-          <h1 className="text-2xl md:text-4xl font-bold max-w-2xl leading-tight drop-shadow-lg">
-            Personalized, effective, and affordable tutoring services for Advantage Academic Center students.
-          </h1>
-          <span className="text-lg font-medium drop-shadow-md">
-            Excel in Science & Mathematics with Personalized Coaching
-          </span>
-        </div>
+
       </div>
     </main>
   );
