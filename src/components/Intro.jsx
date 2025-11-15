@@ -20,7 +20,7 @@ const HeroSection = () => {
 
   return (
     <main className="relative">
-      <div className={`relative w-full h-[48rem] ${styles.heroContainer}`}>
+      <div className={`relative w-full aspect-[2/1] ${styles.heroContainer}`}>
         {/* Image Background Layer */}
         <div className="absolute inset-0 z-0">
           {imageUrls.map((url, index) => (
