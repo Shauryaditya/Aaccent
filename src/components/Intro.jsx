@@ -23,7 +23,7 @@ const HeroSection = () => {
       setCurrentImageIndex((prevIndex) => 
         (prevIndex + 1) % desktopImages.length
       );
-    }, 2000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [desktopImages.length]);
@@ -63,8 +63,7 @@ const HeroSection = () => {
             ))}
           </div>
 
-          {/* Dark overlay */}
-          <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
+
         </div>
 
         {/* Text Overlay */}
