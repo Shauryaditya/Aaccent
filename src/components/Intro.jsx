@@ -5,7 +5,7 @@ const HeroSection = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const imageUrls = [
-    "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1763216949/Banner_1_fme9fs.jpg",
+    "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1763268020/Advantage_academic_Center_d2gubh.webp",
     "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1763217793/Banner-2_1_o0phsr.webp",
     "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1763218594/board_brilliance_1_enjr2u.webp",
   ];

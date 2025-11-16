@@ -8,78 +8,16 @@ import WhyUs from '../components/WhyUs.astro';
 import Advantage from "../components/Advantage.astro"
 import SpecialOffer from '../components/SpecialOffer.astro';
 import StudyMaterialSection from '../components/StudyMaterialSection.astro';
+import ExploreNow from '../components/ExploreNow.astro';
+import EnrollmentForm from '../components/EnrollmentForm.astro';
 ---
 
 <Layout>
 	<Herosection client:visible />
-
-	<!-- Catchy Call-to-Action Section -->
-	<style>
-		.highlight-section {
-		  text-align: center;
-		  margin: 2rem 0;
-		  padding: 2rem 1.5rem;
-		  background: linear-gradient(145deg, #f0f4f8, #ffffff);
-		  border-radius: 12px;
-		  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-		  max-width: 100%;
-		  margin-left: auto;
-		  margin-right: auto;
-		}
-	  
-		.highlight-section h2 {
-		  color: #1a73e8;
-		  font-size: 2rem;
-		  font-weight: 700;
-		  margin-bottom: 0.75rem;
-		}
-	  
-		.highlight-section p {
-		  color: #333;
-		  font-size: 1.15rem;
-		  margin-bottom: 1.5rem;
-		  line-height: 1.6;
-		}
-	  
-		.highlight-section a {
-		  display: inline-block;
-		  padding: 0.9rem 1.8rem;
-		  background-color: #1a1a1a;
-		  color: #fff;
-		  text-decoration: none;
-		  font-weight: 600;
-		  font-size: 1.1rem;
-		  border-radius: 6px;
-		  transition: all 0.3s ease;
-		}
-	  
-		.highlight-section a:hover {
-		  background-color: #333;
-		  transform: scale(1.05);
-		}
-	  </style>
-	  
-	  <div class="highlight-section">
-		<h2> Your Academic Success Starts Here! </h2>
-		<p>
-		  Access top-notch <strong>courses</strong>, <strong>assignments</strong>, and <strong>lectures</strong>
-		  exclusively from <em>Advantage Academic Center</em>.
-		</p>
-		<a 
-		  href="https://elearn.aaccent.in/search" 
-		  target="_blank" 
-		  rel="noopener noreferrer"
-		>
-		   Explore Now
-		</a>
-	  </div>
-	  
-
+	<ExploreNow />
 	<Features />
 	<Specialities />
-	<SpecialOffer />
 	<WhyUs />
 	<StudyMaterialSection />
-	<Advantage />
-	<Bookanimation />
+	<EnrollmentForm />
 </Layout>

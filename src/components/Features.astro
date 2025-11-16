@@ -3,59 +3,261 @@ import Card from './Card.astro';
 
 const cardDetails = [
   {
-    title: "Our Story",
-    imagePath: 'https://res.cloudinary.com/dvjbrjvgf/image/upload/v1703397011/Aaccent/cwxvsud6phkiszskjb2w.jpg',
+    title: "Foundation Courses",
+    imagePath: "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1703397011/Aaccent/cwxvsud6phkiszskjb2w.jpg",
     description:
-      "We at ADVANTAGE aim to make our students adept and develop in them academic excellence, sincerity and positive values to make them responsible citizens of our country. The team of qualified & experienced faculty train the students with the right guidance as per the syllabi/patterns /types of questions and also induces in them the spirit of excellence by keeping their morale high up.",
-    
-    width: 400, // Set the actual width of the image
-    height: 600, // Set the actual height of the image
+      "Our Foundation Courses are designed to strengthen fundamental concepts from an early stage, preparing students for school exams as well as future competitive opportunities. We focus on clarity, confidence-building, and consistent academic growth.",
+    width: 400,
+    height: 600,
+    enrollLink: "#enrollment",
+    tag: "Popular"
   },
   {
-    title: "Our Services",
-    imagePath: 'https://res.cloudinary.com/dvjbrjvgf/image/upload/v1703397011/Aaccent/q3mp60nr2odxqttcbtnp.jpg',
+    title: "CBSE Boards",
+    imagePath: "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1703397011/Aaccent/q3mp60nr2odxqttcbtnp.jpg",
     description:
-      "At Advantage Academic Center Tutoring Centre, we offer a wide range of tutoring services to meet the unique needs of each student. From one-on-one tutoring to group classes, we have everything you need to succeed.",
-
-    width: 400, // Set the actual width of the image
-    height: 600, // Set the actual height of the image
+      "Our CBSE Board coaching emphasizes strong conceptual understanding, NCERT mastery, and disciplined practice. Students receive structured guidance to excel in school exams and build a solid academic base.",
+    width: 400,
+    height: 600,
+    enrollLink: "#enrollment",
   },
   {
-    title: "Our Tutors",
-    imagePath: 'https://res.cloudinary.com/dvjbrjvgf/image/upload/v1703397011/Aaccent/uxclyask1ylacycgqqcj.jpg',
+    title: "ICSE Board",
+    imagePath: "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1703397011/Aaccent/uxclyask1ylacycgqqcj.jpg",
     description:
-      "Our tutors are experienced educators who are passionate about their subjects and committed to helping students succeed. They work closely with each student to develop a customized learning plan that meets their unique needs and helps them achieve their goals.",
-   
-    width: 400, // Set the actual width of the image
-    height: 600, // Set the actual height of the image
+      "The ICSE curriculum requires analytical thinking and precision. Our program helps students understand concepts deeply, improve writing skills, and score high with regular tests, explanations, and personalized mentoring.",
+    width: 400,
+    height: 600,
+    enrollLink: "#enrollment"
   },
   {
-    title: "About Us",
-    imagePath: 'https://res.cloudinary.com/dvjbrjvgf/image/upload/v1703397010/Aaccent/najplhse7blot2cx5moz.jpg',
+    title: "Madhyamik Boards",
+    imagePath: "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1703397010/Aaccent/najplhse7blot2cx5moz.jpg",
     description:
-      "Advantage academic centre started its journey in december 2005 from scratch. in around 18 years time it has become what it is today. presently advantage has approximately 150 students from renowned schools of kolkata like st xaviers, m p birla, mahadevi birla, etc are under our guidance.",
-  
-    width: 400, // Set the actual width of the image
-    height: 600, // Set the actual height of the image
+      "Our Madhyamik coaching strengthens core subjects with systematic teaching, concept reinforcement, and continuous evaluation. Students build accuracy, confidence, and exam readiness for excellent board results.",
+    width: 400,
+    height: 600,
+    enrollLink: "#enrollment"
   },
-  // ... (repeat for other cardDetails)
+  {
+    title: "JOINT Courses for JEE Mains",
+    imagePath: "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1713084512/Aaccent/holu1asphyeomjbpahmy.jpg",
+    description:
+      "Our JEE Mains program trains students with advanced problem-solving techniques, time management strategies, mock tests, and conceptual mastery. Ideal for aspirants aiming for engineering colleges through competitive performance.",
+    width: 400,
+    height: 600,
+    enrollLink: "#enrollment",
+    tag: "New"
+  },
 ];
-
 ---
 
-<main class="max-w-5xl mx-auto">
-  <div class="">
-   
-  </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 p-10 ">
-        {cardDetails.map((item) => (
-           <Card 
+<section class="courses-section">
+  <div class="courses-container">
+    <div class="section-header">
+      <h1 class="section-title">Courses We Provide</h1>
+      <p class="section-subtitle">
+        Comprehensive learning programs designed to help you achieve academic excellence
+      </p>
+    </div>
+    
+    <div class="courses-grid">
+      {cardDetails.map((item, index) => (
+        <div class="card-wrapper" data-index={index}>
+          {item.tag && (
+            <div class={`course-tag ${item.tag.toLowerCase()}`}>
+              {item.tag}
+            </div>
+          )}
+          <Card 
             title={item.title}
             imagePath={item.imagePath}
             width={item.width}
             height={item.height}
-            text={item.description} 
-           />
-        ))}
+            text={item.description}
+            enrollLink={item.enrollLink}
+          />
+        </div>
+      ))}
     </div>
-</main>
+  </div>
+</section>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animate section header
+  gsap.from('.section-header', {
+    opacity: 0,
+    y: 30,
+    duration: 0.8,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '.section-header',
+      start: 'top 80%',
+    }
+  });
+
+  // Animate cards with stagger
+  const cards = gsap.utils.toArray('.card-wrapper');
+  
+  cards.forEach((card: any) => {
+    gsap.from(card, {
+      opacity: 0,
+      y: 50,
+      duration: 0.6,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 85%',
+      }
+    });
+  });
+
+  // Add subtle hover animations
+  cards.forEach((card: any) => {
+    card.addEventListener('mouseenter', () => {
+      gsap.to(card, {
+        y: -8,
+        duration: 0.3,
+        ease: 'power2.out'
+      });
+    });
+
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, {
+        y: 0,
+        duration: 0.3,
+        ease: 'power2.out'
+      });
+    });
+  });
+</script>
+
+<style>
+  .courses-section {
+    padding: 3rem 2rem;
+    background: linear-gradient(180deg, #ffffff 0%, #fafaf9 50%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .courses-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 300px;
+    background: radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .courses-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1a202c;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .section-subtitle {
+    font-size: 1.125rem;
+    color: #57534e;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2.5rem;
+    padding: 0 1rem;
+  }
+
+  .card-wrapper {
+    position: relative;
+    will-change: transform;
+  }
+
+  .course-tag {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    z-index: 10;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .course-tag.popular {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+  }
+
+  .course-tag.new {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+  }
+
+  /* Responsive Grid */
+  @media (min-width: 640px) {
+    .courses-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .courses-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+
+    .section-title {
+      font-size: 3rem;
+    }
+  }
+
+  @media (max-width: 639px) {
+    .courses-section {
+      padding: 3rem 1rem;
+    }
+
+    .section-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+    }
+
+    .courses-grid {
+      gap: 2rem;
+      padding: 0;
+    }
+  }
+</style>
