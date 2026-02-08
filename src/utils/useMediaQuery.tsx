@@ -22,17 +22,20 @@ export function useMediaQuery(query: string): boolean {
     handleChange()
 
     // Listen matchMedia
-    if (matchMedia.addListener) {
-      matchMedia.addListener(handleChange)
+    // Cast to any to avoid deprecated warnings for addListener/removeListener
+    const mql = matchMedia as any;
+
+    if (mql.addEventListener) {
+      mql.addEventListener('change', handleChange)
     } else {
-      matchMedia.addEventListener('change', handleChange)
+      mql.addListener(handleChange)
     }
 
     return () => {
-      if (matchMedia.removeListener) {
-        matchMedia.removeListener(handleChange)
+      if (mql.removeEventListener) {
+        mql.removeEventListener('change', handleChange)
       } else {
-        matchMedia.removeEventListener('change', handleChange)
+        mql.removeListener(handleChange)
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -1,0 +1,163 @@
+X [ERROR] The build was canceled
+
+14:41:17 [types] Generated 222ms
+14:41:17 [check] Getting diagnostics for Astro files in C:\Users\shaur\OneDrive\Desktop\Aaccent\eminent-event...
+[96msrc/components/Advantage.astro[0m:[93m53[0m:[93m30[0m - [93mwarning[0m[90m ts(6133): [0m'index' is declared but its value is never read.
+
+[7m53[0m       cardDetails.map((item, index) => (
+[7m  [0m [93m                             ~~~~~[0m
+
+[96msrc/components/Intro.jsx[0m:[93m1[0m:[93m8[0m - [93mwarning[0m[90m ts(6133): [0m'React' is declared but its value is never read.
+
+[7m1[0m import React, { useState, useEffect } from 'react';
+[7m [0m [93m       ~~~~~[0m
+
+[96msrc/components/MyCard.jsx[0m:[93m2[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'React' is declared but its value is never read.
+
+[7m2[0m import React from 'react'
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/components/MyCard.jsx[0m:[93m1[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'Image' is declared but its value is never read.
+
+[7m1[0m import { Image } from 'astro:assets'
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/components/Nav.jsx[0m:[93m1[0m:[93m8[0m - [93mwarning[0m[90m ts(6133): [0m'React' is declared but its value is never read.
+
+[7m1[0m import React, { useState } from "react";
+[7m [0m [93m       ~~~~~[0m
+
+[96msrc/components/ResultModal.jsx[0m:[93m4[0m:[93m22[0m - [93mwarning[0m[90m ts(6133): [0m'onClose' is declared but its value is never read.
+
+[7m4[0m const ResultModal = ({ onClose }) => {
+[7m [0m [93m                     ~~~~~~~~~~~[0m
+[96msrc/components/ResultModal.jsx[0m:[93m1[0m:[93m1[0m - [93mwarning[0m[90m ts(6192): [0mAll imports in import declaration are unused.
+
+[7m1[0m import React, { useState } from 'react'
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/components/Specialities.astro[0m:[93m259[0m:[93m36[0m - [93mwarning[0m[90m ts(6133): [0m'e' is declared but its value is never read.
+
+[7m259[0m     btn.addEventListener('click', (e) => {
+[7m   [0m [93m                                   ~[0m
+
+[96msrc/layouts/Layout.astro[0m:[93m164[0m:[93m4[0m - [93mwarning[0m[90m ts(6385): [0m'charset' is deprecated.
+
+[7m164[0m s1.charset='UTF-8';
+[7m   [0m [93m   ~~~~~~~[0m
+[96msrc/layouts/Layout.astro[0m:[93m159[0m:[93m1[0m - [93mwarning[0m[90m ts(6199): [0mAll variables are unused.
+
+[7m159[0m var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+[7m   [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/layouts/Layout.astro[0m:[93m111[0m:[93m12[0m - [91merror[0m[90m ts(2554): [0mExpected 0 arguments, but got 2.
+
+[7m111[0m       gtag('config', 'G-BWWW3WGD7K');
+[7m   [0m [91m           ~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/layouts/Layout.astro[0m:[93m109[0m:[93m12[0m - [91merror[0m[90m ts(2554): [0mExpected 0 arguments, but got 2.
+
+[7m109[0m       gtag('js', new Date());
+[7m   [0m [91m           ~~~~~~~~~~~~~~~~[0m
+[96msrc/layouts/Layout.astro[0m:[93m108[0m:[93m23[0m - [91merror[0m[90m ts(2304): [0mCannot find name 'dataLayer'.
+
+[7m108[0m       function gtag(){dataLayer.push(arguments);}
+[7m   [0m [91m                      ~~~~~~~~~[0m
+[96msrc/layouts/Layout.astro[0m:[93m158[0m:[93m9[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m158[0m <script type="text/javascript">
+[7m   [0m [93m        ~~~~[0m
+[96msrc/layouts/Layout.astro[0m:[93m117[0m:[93m7[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m117[0m       async
+[7m   [0m [93m      ~~~~~[0m
+[96msrc/layouts/Layout.astro[0m:[93m104[0m:[93m13[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m104[0m     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BWWW3WGD7K">
+[7m   [0m [93m            ~~~~~[0m
+[96msrc/layouts/Layout.astro[0m:[93m93[0m:[93m13[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m93[0m     <script type="text/partytown">
+[7m  [0m [93m            ~~~~[0m
+[96msrc/layouts/Layout.astro[0m:[93m89[0m:[93m7[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m89[0m       type="text/partytown"
+[7m  [0m [93m      ~~~~[0m
+[96msrc/layouts/Layout.astro[0m:[93m76[0m:[93m13[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m76[0m     <script type="text/javascript" set:html={fbPixelScript}></script>
+[7m  [0m [93m            ~~~~[0m
+[96msrc/layouts/Layout.astro[0m:[93m65[0m:[93m13[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m65[0m     <script type="text/javascript">
+[7m  [0m [93m            ~~~~[0m
+[96msrc/layouts/Layout.astro[0m:[93m64[0m:[93m13[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m64[0m     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-616714365"></script>
+[7m  [0m [93m            ~~~~~[0m
+[96msrc/layouts/Layout.astro[0m:[93m47[0m:[93m13[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m47[0m     <script type="text/javascript">
+[7m  [0m [93m            ~~~~[0m
+
+[96msrc/pages/contact.astro[0m:[93m2[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'ContactForm' is declared but its value is never read.
+
+[7m2[0m import ContactForm from "../components/Contact/ContactForm.astro";
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/pages/index.astro[0m:[93m9[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'SpecialOffer' is declared but its value is never read.
+
+[7m9[0m import SpecialOffer from '../components/SpecialOffer.astro';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/pages/index.astro[0m:[93m8[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'Advantage' is declared but its value is never read.
+
+[7m8[0m import Advantage from "../components/Advantage.astro"
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/pages/index.astro[0m:[93m6[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'Bookanimation' is declared but its value is never read.
+
+[7m6[0m import Bookanimation from '../components/bookanimation.astro';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/pages/services.astro[0m:[93m3[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'Picture' is declared but its value is never read.
+
+[7m3[0m import { Picture } from "astro:assets";
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+Result (40 files): 
+- 3 errors
+- 0 warnings
+- 24 hints
+

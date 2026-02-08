@@ -101,11 +101,11 @@ const canonicalURL = 'https://www.aaccent.in' ;
     <!-- End Google Analytics -->
 
     <!-- Google Analytics (G-BWWW3WGD7K) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BWWW3WGD7K">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BWWW3WGD7K" is:inline>
     </script>
-    <script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag(...args){window.dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'G-BWWW3WGD7K');
