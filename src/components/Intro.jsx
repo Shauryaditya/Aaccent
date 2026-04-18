@@ -6,15 +6,15 @@ const HeroSection = () => {
 
   // Desktop images (2:1 ratio)
   const desktopImages = [
-    "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1763268020/Advantage_academic_Center_d2gubh.webp",
-    "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1763217793/Banner-2_1_o0phsr.webp",
+    "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1776510941/Banner-home_nabvwc.webp",
+    "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1776511951/ADVANTAGE_ACADEMIC_CENTER_1920_x_600_px_1000_x_500_px_sc40ut.png",
     "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1763218594/board_brilliance_1_enjr2u.webp",
   ];
 
   // Mobile images (5:6 ratio) - Add your mobile-specific images here
   const mobileImages = [
-    "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1763310061/Advantage_academic_C..._imresizer_gvr79l.jpg",
-    "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1763310163/Banner-2_imresizer_orqiah.jpg",
+    "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1776510915/2030_500_x_600_mm_eyovki.webp",
+    "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1776511800/poster_dow9ab.jpg",
     "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1763310235/board_brilliance_1__imresizer_ox7w7i.jpg",
   ];
 
@@ -29,11 +29,11 @@ const HeroSection = () => {
   }, [desktopImages.length]);
 
   return (
-    <main className="relative">
-      {/* Mobile: 5:6 ratio, Desktop: 2:1 ratio */}
-      <div className={`relative w-full aspect-[5/6] md:aspect-[2/1] ${styles.heroContainer}`}>
+    <main className="relative pt-4 pb-8 px-4 md:px-6">
+      {/* Container with rounded corners and max-width for modern compact look */}
+      <div className={`relative w-full max-w-7xl mx-auto aspect-[5/6] md:aspect-[2/1] ${styles.heroContainer || ''} rounded-2xl md:rounded-[2rem] overflow-hidden shadow-2xl ring-1 ring-black/5`}>
         {/* Image Background Layer */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 bg-stone-100">
           
           {/* Desktop Images */}
           <div className="hidden md:block absolute inset-0">
@@ -62,7 +62,6 @@ const HeroSection = () => {
               />
             ))}
           </div>
-
 
         </div>
 

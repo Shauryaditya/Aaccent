@@ -1,40 +1,28 @@
 ---
 const galleryItems = [
   {
-    src: "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1713085020/Aaccent/lo7ejjqsekqgxn6slyyd.jpg",
-    alt: "Students in classroom",
+    type: "reel",
+    url: "https://www.instagram.com/p/DTs1ua9E_eA/",
     caption: "Interactive Learning Sessions",
     category: "Classes"
   },
   {
-    src: "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1713084512/Aaccent/holu1asphyeomjbpahmy.jpg",
-    alt: "JEE preparation",
+    type: "reel",
+    url: "https://www.instagram.com/p/DTaowztCen5/",
     caption: "JEE Advanced Coaching",
     category: "Achievement"
   },
   {
-    src: "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1705163557/Aaccent/y5yytlhy1ppa9pr7d3yq.jpg",
-    alt: "Campus event",
-    caption: "Collaborative Learning",
-    category: "Events"
-  },
-  {
-    src: "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1713085112/Aaccent/o2kv5aveqpk7kekfabd1.jpg",
-    alt: "Student studying",
-    caption: "Focused Study Environment",
-    category: "Classes"
-  },
-  {
-    src: "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1703397011/Aaccent/uxclyask1ylacycgqqcj.jpg",
-    alt: "Board exam preparation",
-    caption: "Board Exam Excellence",
-    category: "Achievement"
-  },
-  {
-    src: "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1705152077/Aaccent/c8xldeivaha5c4qns3hf.jpg",
-    alt: "Group activity",
+    type: "reel",
+    url: "https://www.instagram.com/p/DSUPqOcidMT/",
     caption: "Saraswati Puja Celebration",
     category: "Events"
+  },
+  {
+    type: "reel",
+    url: "https://www.instagram.com/p/DU0iqG5CUyP/",
+    caption: "Focused Study Environment",
+    category: "Classes"
   }
 ];
 ---
@@ -44,7 +32,7 @@ const galleryItems = [
     <div class="section-header">
       <h2 class="section-title">Our Success Stories</h2>
       <p class="section-subtitle">
-        Witness the journey of excellence at Advantage Academic Center
+        Witness the journey of excellence at Advantage Academic Center through our Instagram Reels
       </p>
     </div>
 
@@ -60,95 +48,36 @@ const galleryItems = [
     <div class="gallery-grid">
       {galleryItems.map((item, index) => (
         <div 
-          class="gallery-item" 
+          class="gallery-item reel-item" 
           data-category={item.category.toLowerCase()}
           data-index={index}
         >
-          <div class="image-wrapper">
-            <img src={item.src} alt={item.alt} loading="lazy" />
-            <div class="overlay">
-              <div class="overlay-content">
-                <h3 class="image-caption">{item.caption}</h3>
-                <span class="category-badge">{item.category}</span>
-              </div>
-              <button class="view-btn" data-image-index={index}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
-            </div>
+          <div class="reel-wrapper">
+            <blockquote 
+              class="instagram-media" 
+              data-instgrm-permalink={item.url} 
+              data-instgrm-version="14" 
+              style="background:#FFF; border:0; margin:0; padding:0; width:100%;"
+            >
+            </blockquote>
+          </div>
+          <div class="reel-info">
+            <h3 class="reel-caption">{item.caption}</h3>
+            <span class="category-badge">{item.category}</span>
           </div>
         </div>
       ))}
     </div>
   </div>
-
-  <!-- Lightbox Modal -->
-  <div class="lightbox" id="lightbox">
-    <button class="lightbox-close">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <path d="M18 6L6 18M6 6l12 12" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    </button>
-    <button class="lightbox-prev">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
-    <button class="lightbox-next">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
-    <div class="lightbox-content">
-      <img src="" alt="" id="lightbox-image" />
-      <div class="lightbox-info">
-        <h3 id="lightbox-caption"></h3>
-        <span id="lightbox-category"></span>
-      </div>
-    </div>
-  </div>
 </section>
+
+<script async src="https://www.instagram.com/embed.js"></script>
 
 <script>
   import gsap from 'gsap';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
   gsap.registerPlugin(ScrollTrigger);
-
-  // Gallery data
-  const galleryData = [
-    {
-      src: "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1713085020/Aaccent/lo7ejjqsekqgxn6slyyd.jpg",
-      caption: "Interactive Learning Sessions",
-      category: "Classes"
-    },
-    {
-      src: "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1713084512/Aaccent/holu1asphyeomjbpahmy.jpg",
-      caption: "JEE Advanced Coaching",
-      category: "Achievement"
-    },
-    {
-      src: "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1705152077/Aaccent/c8xldeivaha5c4qns3hf.jpg",
-      caption: "Annual Day Celebration 2024",
-      category: "Events"
-    },
-    {
-      src: "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1713085112/Aaccent/o2kv5aveqpk7kekfabd1.jpg",
-      caption: "Focused Study Environment",
-      category: "Classes"
-    },
-    {
-      src: "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1703397011/Aaccent/uxclyask1ylacycgqqcj.jpg",
-      caption: "Board Exam Excellence",
-      category: "Achievement"
-    },
-    {
-      src: "https://res.cloudinary.com/dvjbrjvgf/image/upload/v1705163557/Aaccent/y5yytlhy1ppa9pr7d3yq.jpg",
-      caption: "Collaborative Learning",
-      category: "Events"
-    }
-  ];
 
   // Animate section header
   gsap.from('.section-header', {
@@ -212,71 +141,6 @@ const galleryItems = [
         }
       });
     });
-  });
-
-  // Lightbox functionality
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImage = document.getElementById('lightbox-image') as HTMLImageElement;
-  const lightboxCaption = document.getElementById('lightbox-caption');
-  const lightboxCategory = document.getElementById('lightbox-category');
-  const closeBtn = document.querySelector('.lightbox-close');
-  const prevBtn = document.querySelector('.lightbox-prev');
-  const nextBtn = document.querySelector('.lightbox-next');
-
-  let currentIndex = 0;
-
-  function openLightbox(index: number) {
-    currentIndex = index;
-    updateLightboxContent();
-    lightbox?.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLightbox() {
-    lightbox?.classList.remove('active');
-    document.body.style.overflow = 'auto';
-  }
-
-  function updateLightboxContent() {
-    const item = galleryData[currentIndex];
-    if (lightboxImage) lightboxImage.src = item.src;
-    if (lightboxCaption) lightboxCaption.textContent = item.caption;
-    if (lightboxCategory) lightboxCategory.textContent = item.category;
-  }
-
-  function showNext() {
-    currentIndex = (currentIndex + 1) % galleryData.length;
-    updateLightboxContent();
-  }
-
-  function showPrev() {
-    currentIndex = (currentIndex - 1 + galleryData.length) % galleryData.length;
-    updateLightboxContent();
-  }
-
-  // Event listeners
-  document.querySelectorAll('.view-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const index = parseInt(btn.getAttribute('data-image-index') || '0');
-      openLightbox(index);
-    });
-  });
-
-  closeBtn?.addEventListener('click', closeLightbox);
-  nextBtn?.addEventListener('click', showNext);
-  prevBtn?.addEventListener('click', showPrev);
-
-  lightbox?.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-
-  // Keyboard navigation
-  document.addEventListener('keydown', (e) => {
-    if (!lightbox?.classList.contains('active')) return;
-    
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') showNext();
-    if (e.key === 'ArrowLeft') showPrev();
   });
 </script>
 
@@ -343,8 +207,9 @@ const galleryItems = [
 
   .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
+    justify-items: center;
   }
 
   .gallery-item {
@@ -354,193 +219,46 @@ const galleryItems = [
     background: white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease;
-  }
-
-  .image-wrapper {
-    position: relative;
-    overflow: hidden;
-    aspect-ratio: 4/3;
-  }
-
-  .image-wrapper img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-
-  .gallery-item:hover img {
-    transform: scale(1.1);
-  }
-
-  .overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    padding: 1.5rem;
   }
 
-  .gallery-item:hover .overlay {
-    opacity: 1;
+  .reel-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 480px;
+    background: #fdf3f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
   }
 
-  .overlay-content {
-    transform: translateY(20px);
-    transition: transform 0.3s ease;
+  .reel-info {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: white;
   }
 
-  .gallery-item:hover .overlay-content {
-    transform: translateY(0);
-  }
-
-  .image-caption {
+  .reel-caption {
     font-size: 1.125rem;
     font-weight: 700;
-    color: white;
-    margin-bottom: 0.5rem;
+    color: #1a202c;
+    margin: 0;
   }
 
   .category-badge {
-    display: inline-block;
+    align-self: flex-start;
     padding: 0.25rem 0.75rem;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
+    background: #e2e8f0;
     border-radius: 1rem;
     font-size: 0.75rem;
-    color: white;
+    color: #4a5568;
     font-weight: 600;
-  }
-
-  .view-btn {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    width: 48px;
-    height: 48px;
-    background: rgba(255, 255, 255, 0.9);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transform: scale(0.8);
-    transition: all 0.3s ease;
-    color: #1c1917;
-  }
-
-  .gallery-item:hover .view-btn {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  .view-btn:hover {
-    background: white;
-    transform: scale(1.1);
-  }
-
-  /* Lightbox */
-  .lightbox {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.95);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
-
-  .lightbox.active {
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  .lightbox-content {
-    max-width: 90vw;
-    max-height: 90vh;
-    position: relative;
-  }
-
-  .lightbox-content img {
-    max-width: 100%;
-    max-height: 80vh;
-    object-fit: contain;
-    border-radius: 0.5rem;
-  }
-
-  .lightbox-info {
-    text-align: center;
-    margin-top: 1.5rem;
-  }
-
-  .lightbox-info h3 {
-    font-size: 1.5rem;
-    color: white;
-    margin-bottom: 0.5rem;
-  }
-
-  .lightbox-info span {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 1rem;
-    color: white;
-    font-size: 0.875rem;
-  }
-
-  .lightbox-close,
-  .lightbox-prev,
-  .lightbox-next {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: none;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    cursor: pointer;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-  }
-
-  .lightbox-close {
-    top: 2rem;
-    right: 2rem;
-  }
-
-  .lightbox-prev {
-    left: 2rem;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .lightbox-next {
-    right: 2rem;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .lightbox-close:hover,
-  .lightbox-prev:hover,
-  .lightbox-next:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-50%) scale(1.1);
-  }
-
-  .lightbox-close:hover {
-    transform: scale(1.1);
   }
 
   @media (max-width: 768px) {
@@ -551,20 +269,6 @@ const galleryItems = [
     .gallery-grid {
       grid-template-columns: 1fr;
       gap: 1.5rem;
-    }
-
-    .lightbox-prev,
-    .lightbox-next {
-      width: 40px;
-      height: 40px;
-    }
-
-    .lightbox-prev {
-      left: 1rem;
-    }
-
-    .lightbox-next {
-      right: 1rem;
     }
   }
 </style>
