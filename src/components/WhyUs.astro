@@ -61,19 +61,19 @@ const stats = [
 ];
 ---
 
-<section class="py-12 px-4 bg-gradient-to-b from-stone-50 via-white to-stone-50 relative overflow-hidden">
+<section class="py-20 px-4 bg-gradient-to-b from-[#FAF5EE] to-[#F5EBD6] relative overflow-hidden">
   
   <!-- Background decoration -->
-  <div class="absolute top-0 left-0 right-0 h-96 bg-gradient-radial from-purple-100/20 to-transparent pointer-events-none"></div>
+  <div class="absolute top-0 left-0 right-0 h-96 bg-gradient-radial from-tan/20 to-transparent pointer-events-none"></div>
 
   <div class="max-w-7xl mx-auto relative z-10">
     
     <!-- Header -->
     <div class="text-center mb-16 max-w-3xl mx-auto section-header">
-      <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-001530 mb-6 leading-tight">
         Why Choose Advantage Academic Center?
       </h2>
-      <p class="text-lg text-stone-600 leading-relaxed">
+      <p class="text-lg text-oxford/70 leading-relaxed">
         We understand your aspirations for your child's success. That's why we've built 
         an environment where consistent teaching, personalized attention, and proven methods 
         come together to unlock every student's true potential.
@@ -84,13 +84,13 @@ const stats = [
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-20">
       {stats.map((stat, index) => (
         <div 
-          class="bg-white p-6 md:p-8 rounded-2xl text-center shadow-lg border-2 border-stone-100 hover:border-gray-900 hover:-translate-y-2 transition-all duration-300 stat-card"
+          class="bg-white p-6 md:p-8 rounded-2xl text-center shadow-lg border border-tan/25 hover:border-tan hover:-translate-y-2 transition-all duration-300 stat-card group"
           data-stat-index={index}
         >
-          <div class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-2">
+          <div class="text-4xl md:text-5xl font-extrabold text-oxford-dark mb-2 group-hover:text-tan-dark transition-colors duration-300">
             {stat.number}
           </div>
-          <div class="text-sm md:text-base text-stone-600 font-semibold">
+          <div class="text-sm md:text-base text-oxford/60 font-semibold">
             {stat.label}
           </div>
         </div>
@@ -101,17 +101,17 @@ const stats = [
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
       {benefits.map((benefit, index) => (
         <div 
-          class="bg-white p-8 rounded-2xl shadow-lg border-2 border-stone-100 hover:border-stone-300 hover:-translate-y-3 hover:shadow-2xl transition-all duration-300 benefit-card"
+          class="bg-white p-8 rounded-2xl shadow-lg border border-tan/20 hover:border-tan hover:-translate-y-3 hover:shadow-2xl transition-all duration-300 benefit-card group"
           data-benefit-index={index}
         >
           <div 
-            class="w-16 h-16 bg-gradient-to-br from-stone-50 to-stone-100 rounded-xl flex items-center justify-center mb-6 text-gray-900"
+            class="w-16 h-16 bg-gradient-to-br from-tan-light/10 to-tan-light/25 rounded-xl flex items-center justify-center mb-6 text-oxford"
             set:html={benefit.icon}
           />
-          <h3 class="text-xl font-bold text-gray-900 mb-3">
+          <h3 class="text-xl font-bold text-oxford-dark mb-3 group-hover:text-tan-dark transition-colors duration-300">
             {benefit.title}
           </h3>
-          <p class="text-stone-600 leading-relaxed">
+          <p class="text-oxford/70 leading-relaxed">
             {benefit.description}
           </p>
         </div>
@@ -119,17 +119,20 @@ const stats = [
     </div>
 
     <!-- CTA Section -->
-    <div class="bg-gradient-to-br from-gray-900 to-stone-800 p-8 md:p-12 rounded-3xl text-center shadow-2xl cta-section">
-      <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-4">
+    <div class="bg-gradient-to-br from-oxford-dark to-oxford border border-tan/20 p-8 md:p-12 rounded-3xl text-center shadow-2xl cta-section relative overflow-hidden">
+      <div class="absolute -right-16 -top-16 w-44 h-44 bg-tan/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -left-16 -bottom-16 w-44 h-44 bg-oxford-light/40 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-4 relative z-10">
         Ready to Transform Your Child's Academic Journey?
       </h3>
-      <p class="text-lg text-stone-300 mb-8">
+      <p class="text-lg text-stone-300 mb-8 relative z-10">
         Join hundreds of successful students at Advantage Academic Center
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
         <a 
           href="https://elearn.aaccent.in/search" 
-          class="px-8 py-4 bg-white text-gray-900 font-semibold rounded-xl hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+          class="px-8 py-4 bg-tan text-oxford-dark hover:bg-tan-dark font-bold rounded-xl hover:-translate-y-1 hover:shadow-xl hover:shadow-tan/20 transition-all duration-300"
         >
           Explore Courses
         </a>

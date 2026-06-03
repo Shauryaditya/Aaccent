@@ -42,6 +42,7 @@ const canonicalURL = 'https://www.aaccent.in' ;
 
 <html lang="en">
   <head>
+    <meta charset="utf-8" />
     <link rel="canonical" href={canonicalURL} />
     <!-- Google Tag Manager -->
     <script type="text/javascript">
@@ -120,7 +121,6 @@ const canonicalURL = 'https://www.aaccent.in' ;
     </script>
     <!-- End Google AdSense -->
 
-    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
@@ -132,8 +132,23 @@ const canonicalURL = 'https://www.aaccent.in' ;
       type="image/x-icon"
     />
     <title>{title}</title>
+
+    <!-- Google Fonts Connection -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <style is:global>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #FAF5EE;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Outfit', 'Inter', sans-serif;
+      }
+    </style>
   </head>
-  <body>
+  <body class="bg-[#FAF5EE] text-oxford-dark">
     <Nav client:load />
     
     <!-- Google Tag Manager (noscript) -->

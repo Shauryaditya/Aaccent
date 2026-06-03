@@ -7,15 +7,15 @@ const videos = [
 ];
 ---
 
-<section class="py-12 px-4 bg-white relative overflow-hidden">
+<section class="py-20 px-4 bg-gradient-to-b from-[#FAF5EE] to-[#F5EBD6] relative overflow-hidden">
   <div class="max-w-7xl mx-auto relative z-10">
     
     <!-- Header -->
     <div class="text-center mb-12 max-w-3xl mx-auto youtube-header">
-      <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-oxford-dark mb-4 leading-tight">
         Learn From Our Experts
       </h2>
-      <p class="text-lg text-stone-600 leading-relaxed">
+      <p class="text-lg text-oxford/70 leading-relaxed">
         Watch our latest tutorials and educational content directly on our channel.
       </p>
     </div>
@@ -24,7 +24,7 @@ const videos = [
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {videos.map((video, index) => (
         <div 
-          class="youtube-card bg-stone-50 p-4 rounded-2xl shadow-lg border-2 border-stone-100 hover:border-stone-300 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
+          class="youtube-card bg-white p-4 rounded-2xl shadow-lg border border-tan/20 hover:border-tan hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
           data-video-index={index}
         >
           <iframe 

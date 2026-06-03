@@ -10,7 +10,8 @@ const cardDetails = [
     width: 400,
     height: 600,
     enrollLink: "#enrollment",
-    tag: "Popular"
+    tag: "Popular",
+    priceLabel: "Starts at ₹800/mo (As low as ₹420/subj)"
   },
   {
     title: "CBSE Boards",
@@ -20,6 +21,7 @@ const cardDetails = [
     width: 400,
     height: 600,
     enrollLink: "#enrollment",
+    priceLabel: "Starts at ₹900/mo (As low as ₹480/subj)"
   },
   {
     title: "ICSE Board",
@@ -28,7 +30,8 @@ const cardDetails = [
       "The ICSE curriculum requires analytical thinking and precision. Our program helps students understand concepts deeply, improve writing skills, and score high with regular tests, explanations, and personalized mentoring.",
     width: 400,
     height: 600,
-    enrollLink: "#enrollment"
+    enrollLink: "#enrollment",
+    priceLabel: "Starts at ₹900/mo (As low as ₹480/subj)"
   },
   {
     title: "Madhyamik Boards",
@@ -37,7 +40,8 @@ const cardDetails = [
       "Our Madhyamik coaching strengthens core subjects with systematic teaching, concept reinforcement, and continuous evaluation. Students build accuracy, confidence, and exam readiness for excellent board results.",
     width: 400,
     height: 600,
-    enrollLink: "#enrollment"
+    enrollLink: "#enrollment",
+    priceLabel: "Starts at ₹800/mo (As low as ₹420/subj)"
   },
   {
     title: "JOINT Courses for JEE Mains",
@@ -47,7 +51,8 @@ const cardDetails = [
     width: 400,
     height: 600,
     enrollLink: "#enrollment",
-    tag: "New"
+    tag: "New",
+    priceLabel: "Starts at ₹1,200/mo (Only ₹1,100/subj)"
   },
 ];
 ---
@@ -57,7 +62,10 @@ const cardDetails = [
     <div class="section-header">
       <h1 class="section-title">Courses We Provide</h1>
       <p class="section-subtitle">
-        Comprehensive learning programs designed to help you achieve academic excellence
+        Comprehensive learning programs designed to help you achieve academic excellence.
+        <span class="block mt-3 text-sm sm:text-base font-semibold text-oxford/85">
+          Affordable packages starting from <span class="text-tan-dark font-bold">&#8377;800/month</span> &mdash; save more with multiple subjects (as low as <span class="text-tan-dark font-bold">&#8377;420/month per subject</span>!)
+        </span>
       </p>
     </div>
     
@@ -76,6 +84,7 @@ const cardDetails = [
             height={item.height}
             text={item.description}
             enrollLink={item.enrollLink}
+            priceLabel={item.priceLabel}
           />
         </div>
       ))}
@@ -139,8 +148,8 @@ const cardDetails = [
 
 <style>
   .courses-section {
-    padding: 3rem 2rem;
-    background: linear-gradient(180deg, #ffffff 0%, #fafaf9 50%, #ffffff 100%);
+    padding: 6rem 2rem;
+    background: linear-gradient(180deg, #FAF5EE 0%, #F5EBD6 100%);
     position: relative;
     overflow: hidden;
   }
@@ -152,7 +161,7 @@ const cardDetails = [
     left: 0;
     right: 0;
     height: 300px;
-    background: radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.05) 0%, transparent 70%);
+    background: radial-gradient(circle at 50% 0%, rgba(210, 180, 140, 0.2) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -171,14 +180,14 @@ const cardDetails = [
   .section-title {
     font-size: 2.5rem;
     font-weight: 800;
-    color: #1a202c;
+    color: #001530;
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
   }
 
   .section-subtitle {
     font-size: 1.125rem;
-    color: #57534e;
+    color: rgba(0, 33, 71, 0.75);
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;

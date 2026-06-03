@@ -43,6 +43,10 @@ const serviceCollection = defineCollection ({
       subjects: z.string(),
     }),
     classes: z.string(),
+    description: z.string().optional(),
+    icon: z.string().optional(),
+    featuresList: z.array(z.string()).optional(),
+    badge: z.string().optional(),
 
     publishDate: z.string().transform(str => new Date(str)),
   }),

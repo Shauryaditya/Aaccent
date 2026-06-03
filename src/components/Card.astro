@@ -7,6 +7,7 @@ export interface Props {
   width?: number;
   height?: number;
   enrollLink?: string;
+  priceLabel?: string;
 }
 
 const { 
@@ -15,7 +16,8 @@ const {
   imagePath,
   width = 400,
   height = 300,
-  enrollLink = "#enrollment"
+  enrollLink = "#enrollment",
+  priceLabel
 } = Astro.props;
 ---
 
@@ -33,6 +35,12 @@ const {
   <div class="card-content">
     <h2 class="course-title">{title}</h2>
     
+    {priceLabel && (
+      <div class="self-center bg-tan/10 text-oxford-dark text-xs font-semibold py-1 px-3 rounded-full border border-tan/30 text-center mb-3">
+        {priceLabel}
+      </div>
+    )}
+    
     <div class="course-text">
       {text}
     </div>
@@ -45,11 +53,12 @@ const {
 
 <style>
   .course-card {
-    background: linear-gradient(135deg, #fafaf9 0%, #f5f5f4 100%);
+    background: #ffffff;
+    border: 1px solid rgba(210, 180, 140, 0.25);
     border-radius: 1.5rem;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 30px rgba(210, 180, 140, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     max-width: 380px;
     width: 100%;
     display: flex;
@@ -59,14 +68,15 @@ const {
 
   .course-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 15px 40px rgba(210, 180, 140, 0.15);
+    border-color: rgba(210, 180, 140, 0.6);
   }
 
   .image-container {
     width: 100%;
     height: 280px;
     overflow: hidden;
-    background: #e7e5e4;
+    background: #f5ece0;
     flex-shrink: 0;
   }
 
@@ -91,14 +101,19 @@ const {
   .course-title {
     font-size: 1.125rem;
     font-weight: 700;
-    color: #1c1917;
+    color: #001530;
     margin-bottom: 1rem;
     text-align: center;
+    transition: color 0.3s ease;
+  }
+
+  .course-card:hover .course-title {
+    color: #bfa27a;
   }
 
   .course-text {
     font-size: 0.875rem;
-    color: #57534e;
+    color: rgba(0, 33, 71, 0.75);
     line-height: 1.6;
     margin-bottom: 1.5rem;
     flex-grow: 1;
@@ -124,16 +139,16 @@ const {
   }
 
   .btn-enroll {
-    background: #1c1917;
-    color: white;
-    border: 2px solid #1c1917;
+    background: #002147;
+    color: #ffffff;
+    border: 2px solid #002147;
   }
 
   .btn-enroll:hover {
-    background: #292524;
-    border-color: #292524;
+    background: #0a2e5c;
+    border-color: #0a2e5c;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(28, 25, 23, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 33, 71, 0.2);
   }
 
   @media (max-width: 480px) {

@@ -1,8 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-const prices: {
-  [classNumber: number]: { [subject: number]: number | undefined };
-} = {
+import Container from "../components/container.astro";
+
+const classes = [4, 5, 6, 7, 8, 9, 10, 11, 12];
+const subjectsCount = [1, 2, 3, 4, 5];
+
+const prices: Record<number, Record<number, number | undefined>> = {
   4: { 1: 800, 2: 1600, 3: 1900, 4: undefined, 5: undefined },
   5: { 1: 800, 2: 1600, 3: 1900, 4: undefined, 5: undefined },
   6: { 1: 800, 2: 1600, 3: 1800, 4: 2000, 5: 2100 },
@@ -12,54 +15,396 @@ const prices: {
   10: { 1: 900, 2: 1700, 3: 2200, 4: 2300, 5: 2500 },
   11: { 1: 1200, 2: 2200, 3: 3300, 4: undefined, 5: undefined },
   12: { 1: 1200, 2: 2200, 3: 3300, 4: undefined, 5: undefined },
-  // Add more rows as needed
 };
 ---
 
-<Layout>
-    <h1 class="text-5xl font-bold text-center">Pricing as per board and classes</h1>
-<div class="grid grid-cols-6 gap-1 md:gap-4 mx-auto max-w-4xl mt-12 mb-16 p-3">
-    {/* Top-left cell */}
-    <div class="group"></div>
+<Layout title="Affordable Pricing Packages | Advantage Academic Center">
+  <!-- Page Hero Header -->
+  <div class="relative overflow-hidden py-16 sm:py-24 bg-gradient-to-b from-tan-light/10 via-[#FAF5EE] to-[#FAF5EE]">
+    <Container class="relative z-10 text-center">
+      <span class="inline-flex items-center gap-1.5 py-1 px-3.5 rounded-full text-xs font-semibold bg-tan/20 border border-tan/30 text-oxford">
+        Tuition Rates
+      </span>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-oxford mt-4 tracking-tight leading-tight">
+        Affordable Board & Class Pricing
+      </h1>
+      <p class="text-lg sm:text-xl text-slate-700 max-w-2xl mx-auto mt-6 leading-relaxed">
+        Premium academic coaching shouldn't cost a fortune. Our progressive subject packages ensure that the more subjects you learn, the less you pay per subject.
+      </p>
+    </Container>
+  </div>
 
-    {/* Top row for subjects */}
-    {
-      [1, 2, 3, 4, 5].map((subject) => (
-        <div class="group" >
-          <div class="w-full bg-gray-300 p-4 flex justify-center items-center">
-            <p class="font-bold text-xs md:text-base">No of subjects {subject}</p>
-          </div>
+  <Container>
+    <!-- Section: Interactive Fee Calculator -->
+    <div class="my-12">
+      <div class="max-w-4xl mx-auto bg-white rounded-3xl border border-tan/30 shadow-lg p-8 sm:p-12">
+        <div class="text-center mb-10">
+          <span class="text-xs font-bold uppercase tracking-widest text-tan-dark">Interactive Fee Planner</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-oxford mt-1">Estimate Your Monthly Fees</h2>
+          <p class="text-slate-500 text-xs sm:text-sm mt-1">Select your class and the number of subjects to see immediate calculations & savings.</p>
         </div>
-      ))
-    }
 
-    {/* Left column for classes */}
-    {
-      [4, 5, 6, 7, 8, 9, 10, 11, 12].map((classNumber) => (
-        <Fragment key={`class-${classNumber}`}>
-          {/* Left header for each class */}
-          <div class="group">
-            <div class="w-full bg-gray-300 p-4 flex justify-center items-center">
-              <p class="font-bold text-xs md:text-base">Class {classNumber}</p>
-            </div>
-          </div>
-
-          {/* Cells for each subject */}
-          {[1, 2, 3, 4, 5].map((subject) => (
-            <div class="group" >
-              <div class="w-full bg-gray-100 p-4 flex justify-center items-center">
-                {/* Access the price from the prices object */}
-                {prices[classNumber] &&
-                prices[classNumber][subject] !== undefined ? (
-                  <p class="text-xs md:text-base">{prices[classNumber][subject]}</p>
-                ) : (
-                  <p>N/A</p>
-                )}
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+          <!-- Selection Controls -->
+          <div class="space-y-8">
+            <!-- Class Selection -->
+            <div>
+              <label class="block text-sm font-bold text-oxford mb-4">1. Select Your Class</label>
+              <div class="grid grid-cols-3 sm:grid-cols-5 gap-2.5" id="class-buttons">
+                {classes.map((cls) => (
+                  <button
+                    type="button"
+                    class={`py-2.5 px-3 text-xs sm:text-sm font-bold rounded-xl border text-center transition duration-200 cursor-pointer ${
+                      cls === 9
+                        ? "bg-oxford text-white border-oxford"
+                        : "bg-white border-tan/30 text-oxford hover:border-oxford/70"
+                    }`}
+                    data-class={cls}
+                  >
+                    Class {cls}
+                  </button>
+                ))}
               </div>
             </div>
-          ))}
-        </Fragment>
-      ))
-    }
-  </div>
+
+            <!-- Subject Selection -->
+            <div>
+              <label class="block text-sm font-bold text-oxford mb-4">2. Select Number of Subjects</label>
+              <div class="grid grid-cols-5 gap-2.5" id="subject-buttons">
+                {subjectsCount.map((subj) => (
+                  <button
+                    type="button"
+                    class={`py-3 px-3 text-xs sm:text-xs font-bold rounded-xl border text-center transition duration-200 cursor-pointer ${
+                      subj === 3
+                        ? "bg-oxford text-white border-oxford"
+                        : "bg-white border-tan/30 text-oxford hover:border-oxford/70"
+                    }`}
+                    data-subject={subj}
+                  >
+                    {subj} {subj === 1 ? "Subject" : "Subjects"}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <!-- Fee Calculation Display Card -->
+          <div class="bg-[#FAF5EE] rounded-2xl border border-tan/35 p-6 sm:p-8 flex flex-col justify-between h-full relative overflow-hidden">
+            <div class="absolute top-0 right-0 py-1.5 px-3 bg-tan/20 text-oxford text-[10px] uppercase font-bold rounded-bl-lg border-l border-b border-tan/25" id="calculator-badge">
+              Multiple Subjects Discount
+            </div>
+
+            <div class="space-y-6 pt-2">
+              <div>
+                <p class="text-xs text-slate-500 uppercase tracking-wider font-bold">Estimated Monthly Tuition</p>
+                <div class="flex items-baseline gap-2 mt-2">
+                  <span class="text-4xl sm:text-5xl font-black text-oxford tracking-tight font-outfit" id="total-fee">&#8377;2,100</span>
+                  <span class="text-sm text-slate-500 font-semibold">/ month</span>
+                </div>
+              </div>
+
+              <!-- Cost breakdown -->
+              <div class="border-t border-tan/20 pt-4 space-y-3.5">
+                <div class="flex justify-between items-center text-xs sm:text-sm">
+                  <span class="text-slate-600 font-medium">Effective price per subject:</span>
+                  <span class="font-bold text-oxford-dark bg-white border border-tan/20 px-2.5 py-1 rounded-lg" id="per-subject-fee">&#8377;700 / subject</span>
+                </div>
+
+                <div class="flex justify-between items-center text-xs sm:text-sm" id="savings-row">
+                  <span class="text-slate-600 font-medium">Your package savings:</span>
+                  <span class="font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-lg" id="savings-label">Save &#8377;200/mo per subject</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-tan/20 flex flex-col gap-4">
+              <a href="/#enrollment" class="bg-oxford hover:bg-oxford-light text-white text-center py-3.5 px-4 rounded-xl font-bold text-sm transition-all duration-300 shadow-md hover:shadow-lg">
+                Inquire For Admissions
+              </a>
+              <p class="text-[10px] text-center text-slate-400">Calculations based on regular academic sessions. Practical lab fees may apply separately.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: Complete Pricing Matrix Table -->
+    <div class="my-24">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h2 class="text-3xl font-bold text-oxford">Complete Fee Matrix</h2>
+        <p class="text-slate-600 mt-2">Browse the full fee structure at a glance. All prices are in INR (&#8377;) per month.</p>
+        <p class="text-xs text-tan-dark font-medium italic mt-2 block lg:hidden">← Swipe horizontally on mobile to view full fee matrix →</p>
+      </div>
+
+      <div class="bg-white rounded-3xl border border-tan/30 shadow-md overflow-hidden max-w-4xl mx-auto">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-[#FAF5EE] border-b border-tan/30">
+                <th class="py-5 px-6 font-bold text-oxford text-sm sm:text-base font-outfit">Class</th>
+                {subjectsCount.map((num) => (
+                  <th class="py-5 px-4 font-bold text-oxford text-sm sm:text-base text-center font-outfit">
+                    {num} {num === 1 ? "Subject" : "Subjects"}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {classes.map((cls, idx) => (
+                <tr class={`border-b border-tan/15 hover:bg-tan-light/5 transition duration-150 ${idx % 2 === 1 ? 'bg-[#FAF5EE]/20' : ''}`}>
+                  <td class="py-4.5 px-6 font-bold text-oxford text-sm sm:text-base">
+                    Class {cls}
+                  </td>
+                  {subjectsCount.map((subj) => {
+                    const price = prices[cls][subj];
+                    const perSubject = price ? Math.round(price / subj) : null;
+                    return (
+                      <td class="py-4.5 px-4 text-center">
+                        {price !== undefined ? (
+                          <div>
+                            <span class="font-bold text-oxford-dark text-sm sm:text-base">&#8377;{price}</span>
+                            {subj > 1 && perSubject && (
+                              <span class="block text-[10px] text-slate-400 font-semibold mt-0.5">
+                                (&#8377;{perSubject}/subj)
+                              </span>
+                            )}
+                          </div>
+                        ) : (
+                          <span class="text-xs text-slate-400 font-medium">N/A</span>
+                        )}
+                      </td>
+                    );
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: Academic Inclusions Grid -->
+    <div class="my-24 bg-white rounded-3xl border border-tan/25 shadow-sm p-8 sm:p-12 max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h3 class="text-2xl font-bold text-oxford">What is Included in the Fees?</h3>
+        <p class="text-slate-500 mt-2">Every coaching program at Advantage Academic Center covers a complete suite of services.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-8">
+        <div class="flex gap-4">
+          <div class="p-2.5 bg-tan/10 rounded-lg text-oxford shrink-0 h-10 w-10 flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-oxford text-sm sm:text-base">Modern Classrooms</h4>
+            <p class="text-xs sm:text-sm text-slate-500 mt-1">Air-conditioned, bright, and distraction-free study spaces to maximize student focus.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="p-2.5 bg-tan/10 rounded-lg text-oxford shrink-0 h-10 w-10 flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-oxford text-sm sm:text-base">Free Reference Material</h4>
+            <p class="text-xs sm:text-sm text-slate-500 mt-1">Curated chapter sheets, home assignments, and library reference book access included.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="p-2.5 bg-tan/10 rounded-lg text-oxford shrink-0 h-10 w-10 flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-oxford text-sm sm:text-base">Comprehensive Assessment</h4>
+            <p class="text-xs sm:text-sm text-slate-500 mt-1">Regular testing under exam scenarios, detailed evaluations, and error reports for reviews.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="p-2.5 bg-tan/10 rounded-lg text-oxford shrink-0 h-10 w-10 flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-oxford text-sm sm:text-base">1-on-1 Doubt Sessions</h4>
+            <p class="text-xs sm:text-sm text-slate-500 mt-1">Dedicated interactive clarification times with subject educators for personalized focus.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: CTA Banner -->
+    <div class="relative overflow-hidden bg-gradient-to-br from-oxford-dark via-oxford to-oxford-light text-white rounded-3xl p-10 md:p-16 shadow-2xl mt-16 mb-24 border border-oxford-light/50 max-w-4xl mx-auto">
+      <div class="absolute inset-0 opacity-15">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <circle cx="15" cy="15" r="25" fill="white" class="animate-pulse"></circle>
+          <circle cx="80" cy="80" r="20" fill="white" class="animate-pulse"></circle>
+        </svg>
+      </div>
+
+      <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="text-center md:text-left max-w-lg">
+          <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight leading-tight">Start Your Trial Class</h3>
+          <p class="text-white/80 mt-2 text-sm sm:text-base">
+            Register for admissions or request a consultation session to see how we help students achieve excellent scores.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto shrink-0 justify-center">
+          <a
+            href="/#enrollment"
+            class="bg-tan hover:bg-tan-dark text-oxford-dark font-bold text-center px-8 py-3.5 rounded-xl transition duration-300 shadow-md hover:shadow-lg text-sm w-full sm:w-auto"
+          >
+            Apply Now
+          </a>
+          <a
+            href="tel:+919433427259"
+            class="border border-white/30 hover:border-white text-white font-semibold text-center px-8 py-3.5 rounded-xl transition duration-300 text-sm w-full sm:w-auto hover:bg-white/5"
+          >
+            Call Tutors
+          </a>
+        </div>
+      </div>
+    </div>
+  </Container>
 </Layout>
+
+<script is:inline>
+  // Calculator logical states
+  const calculatorPrices = {
+    4: { 1: 800, 2: 1600, 3: 1900 },
+    5: { 1: 800, 2: 1600, 3: 1900 },
+    6: { 1: 800, 2: 1600, 3: 1800, 4: 2000, 5: 2100 },
+    7: { 1: 800, 2: 1600, 3: 1800, 4: 2100, 5: 2200 },
+    8: { 1: 900, 2: 1700, 3: 2100, 4: 2200, 5: 2300 },
+    9: { 1: 900, 2: 1700, 3: 2100, 4: 2200, 5: 2400 },
+    10: { 1: 900, 2: 1700, 3: 2200, 4: 2300, 5: 2500 },
+    11: { 1: 1200, 2: 2200, 3: 3300 },
+    12: { 1: 1200, 2: 2200, 3: 3300 }
+  };
+
+  let activeClass = 9;
+  let activeSubject = 3;
+
+  const classButtonsContainer = document.getElementById('class-buttons');
+  const subjectButtonsContainer = document.getElementById('subject-buttons');
+  
+  const totalFeeEl = document.getElementById('total-fee');
+  const perSubjectFeeEl = document.getElementById('per-subject-fee');
+  const savingsLabelEl = document.getElementById('savings-label');
+  const savingsRowEl = document.getElementById('savings-row');
+  const calcBadgeEl = document.getElementById('calculator-badge');
+
+  function updateCalculator() {
+    // 1. Calculate values
+    const classData = calculatorPrices[activeClass];
+    const totalFee = classData[activeSubject];
+
+    // If undefined (e.g. 4 subjects for Class 4)
+    if (totalFee === undefined) {
+      totalFeeEl.textContent = "N/A";
+      perSubjectFeeEl.textContent = "Package not available";
+      savingsRowEl.style.display = "none";
+      calcBadgeEl.style.display = "none";
+      return;
+    }
+
+    const singlePrice = classData[1];
+    const perSubjectPrice = Math.round(totalFee / activeSubject);
+    const savingsPerSubject = singlePrice - perSubjectPrice;
+    
+    // 2. Render UI
+    totalFeeEl.textContent = `\u20B9${totalFee.toLocaleString()}`;
+    perSubjectFeeEl.textContent = `\u20B9${perSubjectPrice.toLocaleString()} / subject`;
+
+    if (activeSubject > 1 && savingsPerSubject > 0) {
+      savingsRowEl.style.display = "flex";
+      calcBadgeEl.style.display = "block";
+      const totalSavings = (singlePrice * activeSubject) - totalFee;
+      savingsLabelEl.textContent = `Save \u20B9${savingsPerSubject} / subject (\u20B9${totalSavings} total)`;
+      calcBadgeEl.textContent = `Save \u20B9${totalSavings} / Month!`;
+    } else {
+      savingsRowEl.style.display = "none";
+      calcBadgeEl.style.display = "block";
+      calcBadgeEl.textContent = "Single Subject Rate";
+    }
+
+    // 3. Update active states on subject buttons based on class limits
+    const subjectButtons = subjectButtonsContainer.querySelectorAll('button');
+    subjectButtons.forEach(btn => {
+      const num = parseInt(btn.getAttribute('data-subject'));
+      if (classData[num] === undefined) {
+        btn.disabled = true;
+        btn.classList.add('opacity-40', 'cursor-not-allowed');
+        btn.classList.remove('hover:border-oxford/70');
+      } else {
+        btn.disabled = false;
+        btn.classList.remove('opacity-40', 'cursor-not-allowed');
+        btn.classList.add('hover:border-oxford/70');
+      }
+    });
+  }
+
+  // Event Listeners
+  if (classButtonsContainer && subjectButtonsContainer) {
+    // Class button clicks
+    classButtonsContainer.addEventListener('click', (e) => {
+      const btn = e.target.closest('button');
+      if (!btn) return;
+
+      const cls = parseInt(btn.getAttribute('data-class'));
+      activeClass = cls;
+
+      // Update button visual selection
+      classButtonsContainer.querySelectorAll('button').forEach(b => {
+        b.classList.remove('bg-oxford', 'text-white', 'border-oxford');
+        b.classList.add('bg-white', 'border-tan/30', 'text-oxford');
+      });
+      btn.classList.remove('bg-white', 'border-tan/30', 'text-oxford');
+      btn.classList.add('bg-oxford', 'text-white', 'border-oxford');
+
+      // Adjust subject if the new class doesn't support the current subject number
+      const classData = calculatorPrices[activeClass];
+      if (classData[activeSubject] === undefined) {
+        // Fallback to highest available subject number
+        const availableSubjects = Object.keys(classData).map(Number);
+        activeSubject = Math.max(...availableSubjects);
+
+        subjectButtonsContainer.querySelectorAll('button').forEach(sb => {
+          const num = parseInt(sb.getAttribute('data-subject'));
+          if (num === activeSubject) {
+            sb.classList.remove('bg-white', 'border-tan/30', 'text-oxford');
+            sb.classList.add('bg-oxford', 'text-white', 'border-oxford');
+          } else {
+            sb.classList.remove('bg-oxford', 'text-white', 'border-oxford');
+            sb.classList.add('bg-white', 'border-tan/30', 'text-oxford');
+          }
+        });
+      }
+
+      updateCalculator();
+    });
+
+    // Subject button clicks
+    subjectButtonsContainer.addEventListener('click', (e) => {
+      const btn = e.target.closest('button');
+      if (!btn || btn.disabled) return;
+
+      const subj = parseInt(btn.getAttribute('data-subject'));
+      activeSubject = subj;
+
+      // Update button visual selection
+      subjectButtonsContainer.querySelectorAll('button').forEach(b => {
+        b.classList.remove('bg-oxford', 'text-white', 'border-oxford');
+        b.classList.add('bg-white', 'border-tan/30', 'text-oxford');
+      });
+      btn.classList.remove('bg-white', 'border-tan/30', 'text-oxford');
+      btn.classList.add('bg-oxford', 'text-white', 'border-oxford');
+
+      updateCalculator();
+    });
+
+    // Initial load calculation
+    updateCalculator();
+  }
+</script>
